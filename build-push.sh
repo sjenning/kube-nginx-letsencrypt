@@ -1,7 +1,12 @@
-#/bin/bash
+#/usr/bin/env bash
 
-docker build --tag sjenning/kube-nginx-letsencrypt:0.8.1-1 .
+set -e
+
+BASE=${1:-sjenning}
+VERSION=${2:-0.8.1-1}
+
+docker build --tag $BASE/kube-nginx-letsencrypt:$VERSION .
 echo "docker login before continuing"
 read
-docker push sjenning/kube-nginx-letsencrypt:0.8.1-1
+docker push $BASE/kube-nginx-letsencrypt:$VERSION
 
