@@ -7,7 +7,8 @@ RUN mkdir /etc/letsencrypt
 ENV DOMAINS= \
     EMAIL= \
     SECRET= \
-    DEPLOYMENT=
+    DEPLOYMENT= \
+    STAGING=
 
 CMD ["/entrypoint.sh"]
 

@@ -9,6 +9,9 @@ if [[ -z $EMAIL || -z $DOMAINS || -z $SECRET || -z $DEPLOYMENT ]]; then
 fi
 
 CONFIGURATION="--webroot -w $HOME -n --agree-tos --email ${EMAIL} --no-self-upgrade -d ${DOMAINS}"
+if [[ -n $STAGING ]]; then
+  CONFIGURATION="--staging $CONFIGURATION"
+fi
 
 NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 
